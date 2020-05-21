@@ -32,6 +32,27 @@ class PurchaseRequest extends AbstractBuckarooRequest
     }
 
     /**
+     * Get the request push URL.
+     *
+     * @return string
+     */
+    public function getPushUrl()
+    {
+        return $this->getParameter('pushUrl');
+    }
+
+    /**
+     * Sets the request push URL.
+     *
+     * @param string $value
+     * @return $this
+     */
+    public function setPushUrl($value)
+    {
+        return $this->setParameter('pushUrl', $value);
+    }
+    
+    /**
      * @inheritDoc
      * @throws InvalidRequestException
      */
@@ -75,8 +96,8 @@ class PurchaseRequest extends AbstractBuckarooRequest
             $data['ReturnURL'] = $this->getReturnUrl();
         }
 
-        if ($this->getNotifyUrl() != null) {
-            $data['PushURL'] = $this->getNotifyUrl();
+        if ($this->getPushUrl() != null) {
+            $data['PushURL'] = $this->getPushUrl();
         }
 
         if ($this->isRecurrent()) {

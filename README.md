@@ -5,7 +5,7 @@ An Omnipay module for the Buckaroo payment processor. This library uses the new 
 ## Installation
 
 ```
-composer require league/omnipay martijndwars/omnipay-buckaroo-json
+composer require league/omnipay Geert-Mulder/omnipay-buckaroo-json
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ composer require league/omnipay martijndwars/omnipay-buckaroo-json
 To let the user choose between iDeal, PayPal, MasterCard, and Visa on Buckaroo's payment page:
 
 ```php
-$gateway = \Omnipay\Omnipay::create('\MartijnDwars\Omnipay\Buckaroo\Gateway');
+$gateway = \Omnipay\Omnipay::create('\Geert-Mulder\Omnipay\Buckaroo\Gateway');
 $gateway->setWebsiteKey('');
 $gateway->setSecretKey('');
 $gateway->setTestMode(true);
