@@ -32,6 +32,23 @@ class PurchaseRequest extends AbstractBuckarooRequest
     }
 
     /**
+     * @return string
+     */
+    public function getOriginalTransactionKey()
+    {
+        return $this->getParameter('originalTransactionKey');
+    }
+
+    /**
+     * @param string $value
+     * @return PurchaseRequest
+    */
+    public function setOriginalTransactionKey($value)
+    {
+        return $this->setParameter('originalTransactionKey', $value);
+    }
+
+    /**
      * Get the request push URL.
      *
      * @return string
@@ -90,6 +107,10 @@ class PurchaseRequest extends AbstractBuckarooRequest
                     ]
                 ]
             ];
+        }
+
+        if ($this->getOriginalTransactionKey() != null) {
+            $data['OriginalTransactionKey'] = $this->getOriginalTransactionKey();
         }
 
         if ($this->getReturnUrl() != null) {
