@@ -15,24 +15,8 @@ class SepaDirectDebitPurchaseRequest extends PurchaseRequest
 
         $data = parent::getData();
         $data['Brq_payment_method'] = $method;
-
 		$data['Brq_service_' . $method . '_action'] = 'PayRecurrent';
 
-        if ($this->getOriginalTransactionKey()) {
-        	$data['Services']['ServiceList'] = [
-                [
-                    'Name' => 'SepaDirectDebit',
-                    'Action' => 'PayRecurrent',
-                    'Parameters' => [
-                        [
-                            'Name' => 'CollectDate',
-                            'Value' => date('d-m-Y')
-                        ]
-                    ]
-                ]
-            ];
-        }
-
-        return $data;        
+        return $data;
     }
 }

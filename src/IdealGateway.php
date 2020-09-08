@@ -5,7 +5,7 @@ namespace MartijnDwars\Omnipay\Buckaroo;
 /**
  * Buckaroo iDeal Gateway
  */
-class IdealGateway extends BuckarooGateway
+class IdealGateway extends Gateway
 {
     public function getName()
     {
@@ -14,7 +14,7 @@ class IdealGateway extends BuckarooGateway
 
     public function purchase(array $parameters = array())
     {
-        return $this->createRequest('\MartijnDwars\Buckaroo\Message\IdealPurchaseRequest', $parameters);
+        return $this->createRequest('\MartijnDwars\Omnipay\Buckaroo\Message\IdealPurchaseRequest', $parameters);
     }
 }
 

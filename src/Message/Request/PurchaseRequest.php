@@ -40,6 +40,14 @@ class PurchaseRequest extends AbstractBuckarooRequest
     }
 
     /**
+     * @return string
+     */
+    public function getCollectDate()
+    {
+        return $this->getParameter('collectDate');
+    }
+
+    /**
      * @param string $value
      * @return PurchaseRequest
     */
@@ -111,6 +119,18 @@ class PurchaseRequest extends AbstractBuckarooRequest
 
         if ($this->getOriginalTransactionKey() != null) {
             $data['OriginalTransactionKey'] = $this->getOriginalTransactionKey();
+            $data['Services']['ServiceList'] = [
+                [
+                    'Name' => 'SepaDirectDebit',
+                    'Action' => 'PayRecurrent',
+                    'Parameters' => [
+                        [
+                            'Name' => 'CollectDate',
+                            'Value' => $this->getCollectDate()
+                        ]
+                    ]
+                ]
+            ];            
         }
 
         if ($this->getReturnUrl() != null) {
