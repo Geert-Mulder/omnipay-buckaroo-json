@@ -40,6 +40,15 @@ class PurchaseRequest extends AbstractBuckarooRequest
     }
 
     /**
+     * @param string $value
+     * @return PurchaseRequest
+    */
+    public function setOriginalTransactionKey($value)
+    {
+        return $this->setParameter('originalTransactionKey', $value);
+    }
+
+    /**
      * @return string
      */
     public function getCollectDate()
@@ -48,12 +57,11 @@ class PurchaseRequest extends AbstractBuckarooRequest
     }
 
     /**
-     * @param string $value
-     * @return PurchaseRequest
-    */
-    public function setOriginalTransactionKey($value)
+     * @return string
+     */
+    public function setCollectDate($value)
     {
-        return $this->setParameter('originalTransactionKey', $value);
+        return $this->setParameter('collectDate', $value);
     }
 
     /**
